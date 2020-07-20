@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        maven {
+            url = "http://jfrog.ocsoft.com:8081/artifactory/libs-release"
+            credentials {
+                username = "admin"
+                password = "AP5fJyeD6xvheMGfDy5AxLLZXrf"
+            }
+        }
+    }
+    dependencies {
+        classpath "com.praqma:demo:1.1.0"
+    }
+}
+
+apply plugin: 'com.praqma.demo.DemoPlugin'
+
+
+project.greeting.alternativeGreeting = "Howdy"
+
+project.ext.target = "Tom"
+
+task myGreetingTask(type: GreetingTask) {
+	message = "Hey"
+	target = "You"
+}
